@@ -39,9 +39,9 @@ def analyze_market(symbol, timeframe):
         df = pd.DataFrame(bars, columns=['time', 'open', 'high', 'low', 'close', 'volume'])
         
         # Technical Indicators
-        df['ema200'] = ta.ema(df['close'], 200)
-        df['rsi'] = ta.rsi(df['close'], 14)
-        df['atr'] = ta.atr(df['high'], df['low'], df['close'], 14)
+        df['ema200'] = ta.ema(df['close'], length=200)
+        df['rsi'] = ta.rsi(df['close'], length=14)
+        df['atr'] = ta.atr(df['high'], df['low'], df['close'], length=14)
         
         # Support/Resistance (Pivot)
         last_high, last_low, last_close = df['high'].iloc[-2], df['low'].iloc[-2], df['close'].iloc[-2]
